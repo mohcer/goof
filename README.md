@@ -7,6 +7,7 @@ A vulnerable Node.js demo application, based on the [Dreamers Lab tutorial](http
 ```bash
 mongod &
 
+
 git clone https://github.com/Snyk/snyk-demo-todo
 npm install
 npm start
