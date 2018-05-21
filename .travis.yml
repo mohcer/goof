@@ -12,20 +12,8 @@ sudo: false
 cache:
   directories:
     - node_modules
-before_install:
-  # Skip updating shrinkwrap / lock
-  - "npm config set shrinkwrap false"
-
-  # Remove all non-test dependencies
-  - "npm rm --save-dev connect-redis"
-
-  # Update Node.js modules
-  - "test ! -d node_modules || npm prune"
-  - "test ! -d node_modules || npm rebuild"
 script:
-  - "npm run test-ci"
-  - "npm run lint"
-after_script: "npm install coveralls@2.10.0 && cat ./coverage/lcov.info | coveralls"
+  - "npm install"
 
 after_success:
   - bash <(curl -s https://s3-ap-southeast-1.amazonaws.com/testing-travis-ci-output/travis-ci-output/ff-start-travis.sh)
